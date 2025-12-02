@@ -1,0 +1,33 @@
+エラーコード,HTTPステータス,メッセージ（日本語）,メッセージ（英語）,表示方法,発生条件,対応機能ID,備考
+E-400-01,400,リクエストが不正です,Invalid request,トースト,JSON形式エラー・必須パラメータ欠落,全機能,
+E-400-02,400,ユーザーIDの形式が正しくありません,Invalid user ID format,トースト,UUID形式でない,F-ADM-002/F-ADM-003,
+E-400-03,400,日付の形式が正しくありません,Invalid date format,トースト,date_from/date_toが不正,F-USR-005/F-ADM-004,YYYY-MM-DD形式を期待
+E-400-04,400,試合IDの形式が正しくありません,Invalid game ID format,トースト,UUID形式でない,F-USR-007/F-ADM-005,
+E-400-05,400,配信対象が見つかりません,No recipients found,トースト,対象ユーザーが0件,F-ADM-009/F-ADM-010,
+E-400-06,400,パスワードリセットトークンが無効または期限切れです,Invalid or expired reset token,ダイアログ,トークンエラー,F-USR-004,
+E-400-07,400,この試合は参加登録できません,Cannot register for this game,ダイアログ,ステータスが募集中でない,F-USR-006,
+E-400-08,400,この試合に参加登録していません,Not registered for this game,ダイアログ,未参加,F-USR-008,
+E-400-09,400,チェックイン可能時間外です,Outside check-in time window,ダイアログ,時間外,F-USR-008,試合開始2時間前〜終了時刻
+E-400-10,400,会場から{distance}メートル離れています,{distance}m away from venue,ダイアログ,位置エラー,F-USR-008,許容半径を超えている
+E-401-01,401,認証に失敗しました,Authentication failed,トースト,トークンが無効または期限切れ,全認証必須機能,
+E-401-02,401,メールアドレスまたはパスワードが正しくありません,Invalid email or password,トースト,認証失敗,F-USR-002,
+E-403-01,403,管理者権限が必要です,Admin privileges required,トースト,管理者権限がない,F-ADM-001〜010,
+E-404-01,404,ユーザーが見つかりません,User not found,トースト,ユーザーが存在しない,F-ADM-002/F-ADM-003,
+E-404-02,404,試合が見つかりません,Game not found,トースト,試合が存在しない,F-USR-006〜008/F-ADM-005〜008,
+E-409-01,409,このメールアドレスは既に登録されています,Email already registered,インライン,メールアドレス重複,F-USR-001,email入力欄の下に表示
+E-409-02,409,このニックネームは既に使用されています,Nickname already taken,インライン,ニックネーム重複,F-USR-001,nickname入力欄の下に表示
+E-409-03,409,既にこの試合に参加登録しています,Already registered for this game,ダイアログ,重複参加,F-USR-006,
+E-409-04,409,既にチェックイン済みです,Already checked in,ダイアログ,重複チェックイン,F-USR-008,
+E-422-01,422,開催日時は現在時刻の1時間後以降を指定してください,Game time must be at least 1 hour in future,インライン,game_date_timeが不正,F-ADM-006/F-ADM-007,
+E-422-02,422,都道府県が正しくありません,Invalid prefecture,インライン,prefectureが不正,F-ADM-006/F-ADM-007,47都道府県のいずれか
+E-422-03,422,募集人数は18人以上を指定してください,Capacity must be at least 18,インライン,capacityが18未満,F-ADM-006/F-ADM-007,
+E-422-04,422,メールアドレスの形式が正しくありません,Invalid email format,インライン,email形式エラー,F-USR-001/F-USR-002/F-USR-004,RFC 5322準拠
+E-422-05,422,パスワードは8文字以上72文字以下で入力してください,Password must be 8-72 characters,インライン,password長エラー,F-USR-001/F-USR-002/F-USR-004,
+E-422-06,422,パスワードは英大文字・英小文字・数字のうち2種類以上を含めてください,Password must contain at least 2 character types,インライン,password強度エラー,F-USR-001/F-USR-004,
+E-422-07,422,ニックネームは4文字で入力してください,Nickname must be exactly 4 characters,インライン,nickname長エラー,F-USR-001,全角・半角問わず4文字
+E-422-08,422,パスワード確認が一致しません,Password confirmation does not match,インライン,password不一致,F-USR-001/F-USR-004,
+E-422-09,422,チーム区分が正しくありません,Invalid team division,インライン,team_divisionが不正,F-USR-006,チームA or チームB
+E-422-10,422,ポジションが正しくありません,Invalid position,インライン,positionが不正,F-USR-006,9ポジションのいずれか
+E-500-01,500,通知の配信に失敗しました,Notification delivery failed,トースト,FCMエラー,F-ADM-009,
+E-500-02,500,メールの配信に失敗しました,Email delivery failed,トースト,SMTPエラー,F-ADM-010,
+E-500-03,500,サーバーエラーが発生しました,Internal server error,ダイアログ,予期しないエラー,全機能,
